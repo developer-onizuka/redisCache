@@ -49,9 +49,9 @@ redis-replicas        ClusterIP      10.104.154.250   <none>           6379/TCP 
 
 The PONG response confirms that the server is listening.
 ```
-$ REDIS_PASSWORD=$(kubectl get secret --namespace default redis -o jsonpath="{.data.redis-password}" | base64 --decode)
+$ PASSWD=$(kubectl get secret --namespace default redis -o jsonpath="{.data.redis-password}" | base64 --decode)
 
-$ kubectl exec -it redis-master-0 -- redis-cli -a $REDIS_PASSWORD
+$ kubectl exec -it redis-master-0 -- redis-cli -a $PASSWD
 Warning: Using a password with '-a' or '-u' option on the command line interface may not be safe.
 127.0.0.1:6379> ping
 PONG
@@ -65,4 +65,14 @@ $ cd redis-test
 $ dotnet add package Newtonsoft.Json
 $ dotnet add package StackExchange.Redis
 $ dotnet add package MongoDB.Driver
+```
+
+$ 5. Run test program
+```
+export REDIS="192.168.33.223:6379"
+export PASSWD=$(kubectl get secret --namespace default redis -o jsonpath="{.data.redis-password}" | base64 --decode)
+```
+```
+$ dotnet run
+1 -> {"Id":"000000000000000000000000","EmployeeID":1,"FirstName":"Yukichi","LastName":"Fukuzawa"}
 ```
