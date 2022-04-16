@@ -67,7 +67,7 @@ $ dotnet add package StackExchange.Redis
 $ dotnet add package MongoDB.Driver
 ```
 
-$ 5. Run test program
+# 5. Run test program
 ```
 export REDIS="192.168.33.223:6379"
 export PASSWD=$(kubectl get secret --namespace default redis -o jsonpath="{.data.redis-password}" | base64 --decode)
