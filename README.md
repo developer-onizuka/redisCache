@@ -16,6 +16,8 @@ The annotation below should be used in metadata's section in the yaml of storage
     storageclass.kubernetes.io/is-default-class: "true"
 ```
 
+See also the configuration parameters below:<br>
+> https://github.com/bitnami/charts/tree/master/bitnami/redis
 ```
 $ helm install redis bitnami/redis --set master.service.type=LoadBalancer
 
