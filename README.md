@@ -68,11 +68,18 @@ $ dotnet add package MongoDB.Driver
 ```
 
 # 5. Run test App
+This app is to write a Json format data into redis cache and read it after writing.<br>
+Before running, two environments need to be set.
 ```
-export REDIS="192.168.33.223:6379"
-export PASSWD=$(kubectl get secret --namespace default redis -o jsonpath="{.data.redis-password}" | base64 --decode)
-```
-```
+$ export REDIS="192.168.33.223:6379"
+$ export PASSWD=$(kubectl get secret --namespace default redis -o jsonpath="{.data.redis-password}" | base64 --decode)
 $ dotnet run
 1 -> {"Id":"000000000000000000000000","EmployeeID":1,"FirstName":"Yukichi","LastName":"Fukuzawa"}
 ```
+
+In this code, Class entity data will be convered to the Json data format before writing to the Redis, as you can see below:
+```
+            string Jemp = JsonConvert.SerializeObject(emp);
+            cache.StringSet(emp.EmployeeID.ToString(), Jemp, new TimeSpan(0,0,60));
+```
+
