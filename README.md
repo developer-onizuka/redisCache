@@ -36,6 +36,13 @@ redis-master-0                     2/2     Running   0               75m
 redis-replicas-0                   2/2     Running   0               75m
 redis-replicas-1                   2/2     Running   0               74m
 redis-replicas-2                   2/2     Running   0               74m
+
+$ kubectl get services
+NAME                  TYPE           CLUSTER-IP       EXTERNAL-IP      PORT(S)                                                         AGE
+rabbitmq-headless     ClusterIP      None             <none>           4369/TCP,5672/TCP,25672/TCP,15672/TCP                           104m
+redis-headless        ClusterIP      None             <none>           6379/TCP                                                        2m50s
+redis-master          LoadBalancer   10.101.144.223   192.168.33.223   6379:32316/TCP                                                  2m50s
+redis-replicas        ClusterIP      10.104.154.250   <none>           6379/TCP                                                        2m50s
 ```
 
 # 3. PING command to test the connection with the server
