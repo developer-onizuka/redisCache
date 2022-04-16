@@ -57,3 +57,10 @@ Warning: Using a password with '-a' or '-u' option on the command line interface
 PONG
 127.0.0.1:6379> 
 ```
+
+# 4. NuGet
+```
+$ dotnet add package Newtonsoft.Json
+$ dotnet add package StackExchange.Redis
+$ dotnet add package MongoDB.Driver
+```
