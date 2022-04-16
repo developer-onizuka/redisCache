@@ -17,7 +17,7 @@ The annotation below should be used in metadata's section in the yaml of storage
 ```
 
 ```
-$ helm install redis bitnami/redis
+$ helm install redis bitnami/redis --set master.service.type=LoadBalancer
 
 $ kubectl get pvc
 NAME                          STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   AGE
