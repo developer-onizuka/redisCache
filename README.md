@@ -58,8 +58,10 @@ PONG
 127.0.0.1:6379> 
 ```
 
-# 4. NuGet
+# 4. git clone and NuGet
 ```
+$ https://github.com/developer-onizuka/redisCache
+$ cd redis-test
 $ dotnet add package Newtonsoft.Json
 $ dotnet add package StackExchange.Redis
 $ dotnet add package MongoDB.Driver
