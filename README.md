@@ -18,8 +18,11 @@ The annotation below should be used in metadata's section in the yaml of storage
 
 See also the configuration parameters below:<br>
 > https://github.com/bitnami/charts/tree/master/bitnami/redis
+
+Ex) You might see "ERR unknown command 'FLUSHDB', with args beginning with:" without master.disableCommands="". <br>
+If you wanna use FLUSHDB or FLUSHALL which are dangerous commands, so many admin will disable it thru master.disableCommands.
 ```
-$ helm install redis bitnami/redis --set master.service.type=LoadBalancer
+$ helm install redis bitnami/redis --set master.service.type=LoadBalancer --set master.disableCommands=""
 
 $ kubectl get pvc
 NAME                          STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   AGE
