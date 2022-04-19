@@ -86,3 +86,5 @@ In this code, Class entity data will be convered to the Json data format before 
             cache.StringSet(emp.EmployeeID.ToString(), Jemp, new TimeSpan(0,0,60));
 ```
 
+# 6. Single threaded nature of Redis
+> https://redis.io/docs/reference/optimization/latency/#single-threaded-nature-of-redis
