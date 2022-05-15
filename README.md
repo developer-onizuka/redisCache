@@ -22,6 +22,7 @@ See also the configuration parameters below:<br>
 Ex) You might see "ERR unknown command 'FLUSHDB', with args beginning with:" without master.disableCommands="". <br>
 If you wanna use FLUSHDB or FLUSHALL which are dangerous commands, so many admin will disable it thru master.disableCommands.
 ```
+$ helm repo add bitnami https://charts.bitnami.com/bitnami
 $ helm install redis bitnami/redis --set master.service.type=LoadBalancer --set master.disableCommands=""
 
 $ kubectl get pvc
